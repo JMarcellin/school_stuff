@@ -7,7 +7,7 @@ import plotly.graph_objects as go
 # --------------------------------------------------
 # LOAD DATA
 # --------------------------------------------------
-df = pd.read_csv("C:/Users/ASUS/Documents/python_stuff_datasci/dashboard_stuff/BMW sales data (2010-2024) (1).csv")
+df = pd.read_csv("BMW sales data (2010-2024) (1).csv")
 
 st.set_page_config(page_title="BMW Worldwide Sales Dashboard", layout="wide")
 
@@ -253,4 +253,5 @@ with tab3:
     # Trend Component
     st.markdown("### Trend Component")
     fig_trend = px.line(forecast, x="ds", y="trend", title="Underlying Trend")
+
     st.plotly_chart(fig_trend, use_container_width=True)
