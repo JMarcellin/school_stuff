@@ -65,7 +65,8 @@ with tab1:
     with col3:
         kpi_card("Average Mileage (KM)", f"{df['Mileage_KM'].mean():,.0f}")
     with col4:
-        kpi_card("Average Engine Size (L)", f"{df['Engine_Size_L'].mean():.2f}")
+        top_model = df.groupby("Model")["Sales_Volume"].sum().idxmax()
+        kpi_card("Top-Selling Model", top_model)
 
     # Bar Chart — Total Sales by Region
     st.subheader("Total Sales by Region")
@@ -255,3 +256,4 @@ with tab3:
     fig_trend = px.line(forecast, x="ds", y="trend", title="Underlying Trend")
 
     st.plotly_chart(fig_trend, use_container_width=True)
+
